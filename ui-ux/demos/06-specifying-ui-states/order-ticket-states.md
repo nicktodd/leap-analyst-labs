@@ -5,37 +5,37 @@ Contract: `shared/contracts/trade-api.yaml` (`placeOrder`, `cancelOrder`, `getOr
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Loading
-    Loading --> Ready : account and quote loaded
-    Loading --> LoadError : network or server failure
-    Loading --> PermissionDenied : ACC-403 account not active
-    LoadError --> Loading : Retry
+  [*] --> Loading
+  Loading --> Ready : account and quote loaded
+  Loading --> LoadError : load failed
+  Loading --> PermissionDenied : ACC-403
+  LoadError --> Loading : Retry
 
-    Ready --> Editing : user changes a field
-    Editing --> Invalid : field fails validation
-    Invalid --> Editing : user corrects field
-    Editing --> Confirming : Submit
-    Confirming --> Editing : Back
-    Confirming --> Submitting : Confirm
+  Ready --> Editing : user changes a field
+  Editing --> Invalid : validation fails
+  Invalid --> Editing : user corrects field
+  Editing --> Confirming : Submit
+  Confirming --> Editing : Back
+  Confirming --> Submitting : Confirm
 
-    Submitting --> Working : 200 status NEW
-    Submitting --> Filled : 200 status FILLED
-    Submitting --> Rejected : ORD-400, ORD-409, INS-404, VAL-422
-    Submitting --> PermissionDenied : ACC-403
-    Submitting --> SessionExpired : AUTH-401
-    Submitting --> SubmitError : network failure or timeout
+  Submitting --> Working : 200 status NEW
+  Submitting --> Filled : 200 status FILLED
+  Submitting --> Rejected : 400, 404, 409, 422
+  Submitting --> PermissionDenied : ACC-403
+  Submitting --> SessionExpired : AUTH-401
+  Submitting --> SubmitError : no response
 
-    Working --> Filled : trade event FILLED
-    Working --> Rejected : trade event REJECTED
-    Working --> Cancelled : Cancel order succeeds
-    Working --> Working : Cancel refused ORD-409
+  Working --> Filled : event FILLED
+  Working --> Rejected : event REJECTED
+  Working --> Cancelled : Cancel succeeds
+  Working --> Working : Cancel refused 409
 
-    Rejected --> Editing : Amend order
-    SubmitError --> Ready : Check order history, then retry
-    SessionExpired --> [*] : sign in again
-    Filled --> Ready : New order
-    Cancelled --> Ready : New order
-    PermissionDenied --> [*]
+  Rejected --> Editing : Amend order
+  SubmitError --> Ready : history checked
+  SessionExpired --> [*] : sign in again
+  Filled --> Ready : New order
+  Cancelled --> Ready : New order
+  PermissionDenied --> [*]
 ```
 
 ## State notes
@@ -49,7 +49,7 @@ stateDiagram-v2
 | Confirming | Summary of instrument, side, quantity, limit price and estimated cost | BR-05, 9.5 |
 | Working | Status "Order received, waiting to execute" with a Cancel button; announced politely | BR-07, status NEW |
 | Filled | Executed price and updated cash; announced politely | BR-07, BR-09 |
-| Rejected | Plain-language reason mapped from `errorCode`, never from `message` | ErrorResponse |
+| Rejected | Plain-language reason mapped from `errorCode` (400 ORD-400, 404 INS-404, 409 ORD-409, 422 VAL-422), never from `message` | ErrorResponse |
 | SubmitError | "We could not confirm your order. Check your order history before trying again." | Idempotency rule 8 |
 | SessionExpired | Return to sign-in; the unsent ticket is not resubmitted automatically | AUTH-401, BR-03 |
 | Cancelled | Status "Order cancelled" | cancelOrder |

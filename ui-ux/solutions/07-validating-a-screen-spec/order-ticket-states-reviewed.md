@@ -22,37 +22,37 @@ Reference solution for Lab 07. Compare with `labs/07-validating-a-screen-spec/ai
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Loading
-    Loading --> Ready : account and quote loaded
-    Loading --> LoadError : network or server failure
-    Loading --> PermissionDenied : ACC-403
-    LoadError --> Loading : Retry
+  [*] --> Loading
+  Loading --> Ready : account and quote loaded
+  Loading --> LoadError : load failed
+  Loading --> PermissionDenied : ACC-403
+  LoadError --> Loading : Retry
 
-    Ready --> Editing : user changes a field
-    Editing --> Invalid : field fails validation
-    Invalid --> Editing : user corrects field
-    Editing --> Confirming : Submit
-    Confirming --> Editing : Back
-    Confirming --> Submitting : Confirm
+  Ready --> Editing : user changes a field
+  Editing --> Invalid : validation fails
+  Invalid --> Editing : user corrects field
+  Editing --> Confirming : Submit
+  Confirming --> Editing : Back
+  Confirming --> Submitting : Confirm
 
-    Submitting --> Working : 200 status NEW
-    Submitting --> Filled : 200 status FILLED
-    Submitting --> Rejected : ORD-400, ORD-409, INS-404, VAL-422
-    Submitting --> PermissionDenied : ACC-403
-    Submitting --> SessionExpired : AUTH-401
-    Submitting --> SubmitError : network failure or timeout
+  Submitting --> Working : 200 status NEW
+  Submitting --> Filled : 200 status FILLED
+  Submitting --> Rejected : 400, 404, 409, 422
+  Submitting --> PermissionDenied : ACC-403
+  Submitting --> SessionExpired : AUTH-401
+  Submitting --> SubmitError : no response
 
-    Working --> Filled : trade event FILLED
-    Working --> Rejected : trade event REJECTED
-    Working --> Cancelled : Cancel order succeeds
-    Working --> Working : Cancel refused ORD-409
+  Working --> Filled : event FILLED
+  Working --> Rejected : event REJECTED
+  Working --> Cancelled : Cancel succeeds
+  Working --> Working : Cancel refused 409
 
-    Rejected --> Editing : Amend order
-    SubmitError --> Ready : Check order history, then retry
-    SessionExpired --> [*] : sign in again
-    Filled --> Ready : New order
-    Cancelled --> Ready : New order
-    PermissionDenied --> [*]
+  Rejected --> Editing : Amend order
+  SubmitError --> Ready : history checked
+  SessionExpired --> [*] : sign in again
+  Filled --> Ready : New order
+  Cancelled --> Ready : New order
+  PermissionDenied --> [*]
 ```
 
 ## State notes (reviewed)

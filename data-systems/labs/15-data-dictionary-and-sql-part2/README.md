@@ -7,6 +7,21 @@
 - Query production-like data safely, inside a read-only transaction.
 - Author data dictionary entries that engineers can build against.
 
+## What you need to know
+
+Module 15 introduced subqueries, CTEs and read-only sessions. The tasks also use:
+
+- `NOT EXISTS (SELECT ...)`: keeps a row only when the inner query returns nothing (Task 2).
+- `CASE WHEN side = 'BUY' THEN quantity ELSE -quantity END`: chooses a value row by row
+  (Task 4).
+- `FULL OUTER JOIN`: keeps rows from both tables whether or not they match; missing columns
+  are NULL (Task 4).
+- `COALESCE(x, 0)`: returns 0 when x is NULL, so a missing row compares as zero (Task 4).
+- Self-join: join a table to itself with two aliases, e.g. `orders o1 JOIN orders o2` (Task 7).
+- `created_on + INTERVAL '5 seconds'`: adds a time span to a timestamp (Task 7).
+- Stretch only: `RANK() OVER (PARTITION BY ... ORDER BY ...)` numbers rows within each group,
+  giving equal values the same rank.
+
 ## Setup
 
 1. Connect to the training database as in Lab 06.

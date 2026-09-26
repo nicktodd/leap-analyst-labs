@@ -17,12 +17,18 @@
    status, country and cash balance are unchanged, so business rules behave the same.
 3. Point out the `CASE` on email: an account with no email stays without one, because "client
    has no email" is itself a test condition.
+4. Explain the new SQL: `||` joins pieces of text; `id::text` converts the number to text;
+   `LPAD(text, 5, '0')` pads it with leading zeros to five characters. The lab wraps this query
+   in `CREATE TEMP VIEW`, a saved query that lasts only for the session and changes no data.
 
 ## Part 3: a boundary value from the data (5 min)
 
 1. Run Part 3. Result: ACC-100036 has 19612.13 in cash; AAPL closed at 186.99 on 2026-06-30;
    the largest affordable quantity is 104.
-2. Narration: the boundary test cases are therefore 104 units (accepted) and 105 units
+2. Explain the new SQL: `FLOOR` rounds down to a whole number (a client cannot buy 104.9
+   shares); the bracketed `SELECT MAX(price_date)` is a subquery that finds the latest price
+   date, so the query uses the most recent close.
+3. Narration: the boundary test cases are therefore 104 units (accepted) and 105 units
    (rejected for insufficient funds). The analyst calculates the boundary; nobody guesses it.
 
 ## Key message

@@ -7,6 +7,20 @@
 - Write SQL (Structured Query Language) checks that return the offending rows for each issue.
 - Turn each check into a validation rule written as a testable acceptance criterion.
 
+## What you need to know
+
+Modules 06, 07 and 13 cover the SQL for most checks. A few checks also need:
+
+- `UPPER(symbol)` and `TRIM(symbol)`: upper-case a value and strip leading or trailing
+  spaces, so you can see whether a value matches after tidying (checks 4 and 6).
+- `trade_time::date`: turns a timestamp into a date, so it can be joined to
+  `market_prices.price_date` (check 10).
+- `CURRENT_DATE`: today's date, for spotting trade times in the future (check 7).
+- `ABS(x)`: the size of a number ignoring its sign, useful for "more than 50 percent away"
+  (check 10).
+- Checks 2, 4 and 8 start from the Module 13 demo queries: go further by recording every
+  offending row and deciding the action for each.
+
 ## Setup
 
 1. Connect to the training database as in Lab 06.
@@ -24,7 +38,7 @@ Time: 90 minutes, pairs. Allow 30 minutes of that for the write-up.
 3. Record each issue in the findings table in the Word document: dimension, rows affected,
    evidence query, business impact and a proposed action (reject, correct, quarantine or ask).
 4. Write at least five validation rules in Given/When/Then form, for example: Given a feed row,
-   When side is not BUY or SELL, Then the row is rejected with reason INVALID_SIDE.
+   When price is empty, Then the row is quarantined with reason MISSING_PRICE.
 5. Rank the issues by business impact and list the three questions you would take to the
    Trading Desk.
 

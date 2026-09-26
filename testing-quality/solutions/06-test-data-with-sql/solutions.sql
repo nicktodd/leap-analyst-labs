@@ -72,13 +72,15 @@ WITH fills AS (
     FROM orders WHERE status = 'FILLED'
     GROUP BY account_id, symbol
 ),
-bad AS (
+mismatched AS (
     SELECT COALESCE(p.account_id, f.account_id) AS id
     FROM positions p
     FULL OUTER JOIN fills f ON f.account_id = p.account_id AND f.symbol = p.symbol
     WHERE COALESCE(p.quantity, 0) <> COALESCE(f.net_qty, 0)
-    UNION
-    SELECT o.account_id FROM orders o
+),
+incomplete AS (
+    SELECT o.account_id AS id
+    FROM orders o
     WHERE o.status = 'FILLED'
       AND (o.executed_price IS NULL
            OR NOT EXISTS (SELECT 1 FROM order_events e
@@ -90,7 +92,8 @@ WHERE a.status = 'ACTIVE'
   AND a.email IS NOT NULL
   AND a.cash_balance >= 10000
   AND EXISTS (SELECT 1 FROM positions p WHERE p.account_id = a.id AND p.quantity > 0)
-  AND a.id NOT IN (SELECT id FROM bad)
+  AND NOT EXISTS (SELECT 1 FROM mismatched m WHERE m.id = a.id)
+  AND NOT EXISTS (SELECT 1 FROM incomplete i WHERE i.id = a.id)
 ORDER BY a.cash_balance DESC;
 -- Result: 12 accounts. ACC-100049 is removed.
 

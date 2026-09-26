@@ -8,7 +8,7 @@ FROM instruments
 WHERE exchange = 'LSE';
 
 -- Part 3: combine conditions and sort
-SELECT id, symbol, side, quantity, price, created_on
+SELECT id, symbol, side, quantity, created_on
 FROM orders
 WHERE status = 'REJECTED'
   AND channel = 'WEB'

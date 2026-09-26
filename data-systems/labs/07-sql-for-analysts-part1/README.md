@@ -22,7 +22,8 @@ Time: 75 minutes, pairs.
 
 ## Acceptance criteria
 
-- Joins between `orders` and `accounts` use `orders.account_id = accounts.id`.
+- Joins to `accounts` use the surrogate key: `cash_movements.account_id = accounts.id` and
+  `orders.account_id = accounts.id`.
 - No query adds GBP and USD values together.
 - Task 7 uses `HAVING`, not `WHERE`, to filter on the count.
 - Task 9 uses a `LEFT JOIN` and states the result, even if it is empty.

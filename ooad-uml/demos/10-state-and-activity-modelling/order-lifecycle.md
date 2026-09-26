@@ -8,9 +8,9 @@ The states match `orders.status` (NEW, FILLED, REJECTED, CANCELLED) and the audi
 ```mermaid
 stateDiagram-v2
     [*] --> Received : client submits
-    Received --> Rejected : fails validation (BR-05)
-    Received --> New : validated and recorded (BR-06)
-    New --> Filled : priced and executed (BR-08)
+    Received --> Rejected : invalid (BR-05)
+    Received --> New : recorded (BR-06)
+    New --> Filled : executed (BR-08)
     New --> Rejected : execution rejected
     New --> Cancelled : client cancels
     Filled --> [*]
@@ -18,9 +18,9 @@ stateDiagram-v2
     Cancelled --> [*]
 
     state Filled {
-        [*] --> PendingSettlement
-        PendingSettlement --> Settled : T+1 equities and ETFs, T+2 bonds
-        PendingSettlement --> SettlementFailed
+        [*] --> Pending
+        Pending --> Settled : T+1 or T+2
+        Pending --> SettlementFailed
     }
 ```
 
@@ -29,6 +29,7 @@ Rules the diagram states, which the data must obey (Lab 13 tests them):
 - A FILLED order has an executed price and time.
 - Every state change writes one audit event.
 - No transition leaves a terminal state.
+- Settlement is T+1 for equities and ETFs, T+2 for bonds.
 
 ## Activity diagram: placing an order
 

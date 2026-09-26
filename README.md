@@ -9,6 +9,7 @@ here.
 
 | Week | Folder | Theme |
 |---|---|---|
+| 1 | [`foundations/`](foundations) | Foundations: Git lab (other Week 1 labs are Word, JIRA and Confluence) |
 | 2 | [`data-systems/`](data-systems) | The trading domain and data systems |
 | 3 | [`business-analysis/`](business-analysis) | Business analysis foundations |
 | 4 | [`ooad-uml/`](ooad-uml) | OOAD, UML and domain modelling |
@@ -17,7 +18,7 @@ here.
 | 8 | [`testing-quality/`](testing-quality) | Testing, UAT and quality |
 | - | [`shared/`](shared) | The trading database and the platform API contracts |
 
-Weeks 1, 7, 9 and 10 have no code-related labs.
+Weeks 7, 9 and 10 have no code-related labs.
 
 Each week folder has its own `README.md` listing its modules, and is split into:
 

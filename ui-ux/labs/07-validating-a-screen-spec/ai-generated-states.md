@@ -7,15 +7,15 @@ Review this draft before it is used. Do not assume it is correct.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Ready
-    Ready --> Submitting : Submit
-    Submitting --> Filled : 200 OK
-    Submitting --> Error : 4xx or 5xx
-    Filled --> Cancelled : Cancel order
-    Error --> Ready : Dismiss
-    Filled --> PartiallyFilled : partial execution
-    PartiallyFilled --> Filled : remainder executed
-    Cancelled --> [*]
+  [*] --> Ready
+  Ready --> Submitting : Submit
+  Submitting --> Filled : 200 OK
+  Submitting --> Error : 4xx or 5xx
+  Filled --> Cancelled : Cancel order
+  Error --> Ready : Dismiss
+  Filled --> PartiallyFilled : partial fill
+  PartiallyFilled --> Filled : rest filled
+  Cancelled --> [*]
 ```
 
 ## State notes (AI-generated)

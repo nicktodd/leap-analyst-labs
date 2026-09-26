@@ -8,6 +8,21 @@
   `shared/contracts/trade-api.yaml` and the Business Requirements Specification (BRS).
 - Record what each response means for the user interface and for the requirement it tests.
 
+## What you need to know
+
+- **Collection**: a saved set of requests. This lab's collection has three folders: `Auth`,
+  `Accounts` and `Orders`.
+- **Environment**: a named set of variables. A request written as `{{baseUrl}}/api/v1/orders`
+  uses the `baseUrl` value from the selected environment (top right of the Postman window).
+- **Test script**: a few lines of code Postman runs after a response arrives (the `Scripts` or
+  `Tests` tab). The `Log in` script copies `accessToken` into the environment so you do not
+  have to paste it.
+- **JWT claims**: a JWT is three Base64-encoded parts separated by dots; the middle part holds
+  the claims. `sub` is the user, `accountId` the account the token may act on, `roles` what
+  the user may do, and `exp` the expiry time in seconds since 1 January 1970.
+- **Terminal**: Option B needs a command line (Terminal on macOS, PowerShell on Windows). Type
+  each command and press Enter; the mock keeps running until you press Ctrl+C.
+
 ## Setup
 
 Time: 60 minutes, pairs.
@@ -40,8 +55,11 @@ Copy the `accessToken` value from the response.
 
 ### Option B: the Prism mock (no platform needed)
 
-Prism serves the responses described in the contract. It needs Node.js 18 or later. From the
-root of `leap-analyst-labs`, in two terminals:
+Prism serves the responses described in the contract. It needs Node.js 18 or later: check with
+`node --version`, and if it is missing install the LTS version from https://nodejs.org (this
+needs permission to install software). `npx` downloads Prism on first use, so npm registry
+access is also needed. If you cannot install Node.js, use the address of the Prism instance
+your instructor runs instead (set `baseUrl` and `authUrl` in the environment to it). From the root of `leap-analyst-labs`, in two terminals:
 
 ```bash
 npx @stoplight/prism-cli mock shared/contracts/trade-api.yaml

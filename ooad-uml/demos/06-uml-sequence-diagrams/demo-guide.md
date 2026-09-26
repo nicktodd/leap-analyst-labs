@@ -1,7 +1,7 @@
 # Demo: Module 06 - UML sequence diagrams
 
 **Duration:** 15 minutes
-**Prerequisite:** `demos/06-uml-sequence-diagrams/place-order-sequence.md` open in GitHub; the platform `ARCHITECTURE.md` diagram available to show.
+**Prerequisite:** `demos/06-uml-sequence-diagrams/view-holdings-sequence.md` open in GitHub; the platform `ARCHITECTURE.md` diagram available to show.
 
 ## Part 1: lifelines and messages (5 min)
 

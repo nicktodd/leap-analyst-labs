@@ -1,14 +1,14 @@
 -- Module 07 reference solutions (verified against the training database)
 
--- Task 1: 1372 rows
-SELECT o.id, a.account_id, a.holder_name, o.symbol, o.side, o.quantity, o.status
-FROM orders o
-JOIN accounts a ON a.id = o.account_id;
+-- Task 1: 1312 rows
+SELECT c.movement_id, a.account_id, a.holder_name, c.movement_type, c.amount, c.movement_on
+FROM cash_movements c
+JOIN accounts a ON a.id = c.account_id;
 
--- Task 2: FILLED 1127, CANCELLED 150, REJECTED 95
-SELECT status, COUNT(*) AS order_count
+-- Task 2: BUY 1180, SELL 192
+SELECT side, COUNT(*) AS order_count
 FROM orders
-GROUP BY status
+GROUP BY side
 ORDER BY order_count DESC;
 
 -- Task 3: 6 rows (WEB FILLED 1032, DESK FILLED 95)
@@ -25,12 +25,13 @@ WHERE o.status = 'FILLED'
 GROUP BY i.asset_class
 ORDER BY filled_orders DESC;
 
--- Task 5: 20 rows. Currency must be grouped because GBP and USD amounts cannot be added together.
--- Note one FILLED order has a NULL executed_price; SUM ignores it silently.
+-- Task 5: 20 rows (top: GBP VOD 19834.09). Currency must be grouped because GBP and USD
+-- amounts cannot be added together.
 SELECT i.currency, o.symbol, SUM(o.quantity * o.executed_price) AS filled_value
 FROM orders o
 JOIN instruments i ON i.symbol = o.symbol
 WHERE o.status = 'FILLED'
+  AND o.side = 'SELL'
 GROUP BY i.currency, o.symbol
 ORDER BY i.currency, filled_value DESC;
 
@@ -43,14 +44,14 @@ GROUP BY a.account_id, a.holder_name
 ORDER BY filled_orders DESC
 LIMIT 5;
 
--- Task 7: 16 rows; ACC-100017, ACC-100020 and ACC-100054 have 4 each
-SELECT a.account_id, COUNT(*) AS rejected_orders
+-- Task 7: 7 rows; ACC-100010, ACC-100020 and ACC-100041 have 6 each
+SELECT a.account_id, COUNT(*) AS cancelled_orders
 FROM orders o
 JOIN accounts a ON a.id = o.account_id
-WHERE o.status = 'REJECTED'
+WHERE o.status = 'CANCELLED'
 GROUP BY a.account_id
-HAVING COUNT(*) >= 3
-ORDER BY rejected_orders DESC;
+HAVING COUNT(*) >= 5
+ORDER BY cancelled_orders DESC;
 
 -- Task 8: 6 rows, January to June 2026
 SELECT DATE_TRUNC('month', created_on) AS month, COUNT(*) AS orders
