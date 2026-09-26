@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Illustrative legacy SOAP service: account balance lookup.
+     Compare with GET /api/v1/accounts/{id}/balance in shared/contracts/trade-api.yaml. -->
+<definitions name="AccountService"
+    targetNamespace="http://legacy.example.com/account"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://legacy.example.com/account"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <types>
+    <xsd:schema targetNamespace="http://legacy.example.com/account">
+      <xsd:element name="GetBalanceRequest">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="AccountNumber" type="xsd:string"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetBalanceResponse">
+        <xsd:complexType><xsd:sequence>
+          <xsd:element name="AccountNumber" type="xsd:string"/>
+          <xsd:element name="CashBalance" type="xsd:decimal"/>
+          <xsd:element name="Currency" type="xsd:string"/>
+          <xsd:element name="AsOf" type="xsd:dateTime"/>
+        </xsd:sequence></xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+
+  <message name="GetBalanceInput">
+    <part name="body" element="tns:GetBalanceRequest"/>
+  </message>
+  <message name="GetBalanceOutput">
+    <part name="body" element="tns:GetBalanceResponse"/>
+  </message>
+
+  <portType name="AccountPortType">
+    <operation name="GetBalance">
+      <input message="tns:GetBalanceInput"/>
+      <output message="tns:GetBalanceOutput"/>
+    </operation>
+  </portType>
+
+  <binding name="AccountSoapBinding" type="tns:AccountPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetBalance">
+      <soap:operation soapAction="http://legacy.example.com/account/GetBalance"/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+    </operation>
+  </binding>
+
+  <service name="AccountService">
+    <port name="AccountPort" binding="tns:AccountSoapBinding">
+      <soap:address location="https://legacy.example.com/services/AccountService"/>
+    </port>
+  </service>
+</definitions>

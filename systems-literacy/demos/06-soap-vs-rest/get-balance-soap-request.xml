@@ -1,0 +1,13 @@
+POST /services/AccountService HTTP/1.1
+Host: legacy.example.com
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://legacy.example.com/account/GetBalance"
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:acc="http://legacy.example.com/account">
+  <soapenv:Body>
+    <acc:GetBalanceRequest>
+      <acc:AccountNumber>ACC-000001</acc:AccountNumber>
+    </acc:GetBalanceRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

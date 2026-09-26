@@ -1,0 +1,16 @@
+# Starts PostgreSQL 16 with the analyst training database pre-loaded.
+# The .sql files in this folder run in name order the first time the container starts.
+services:
+  trading-db:
+    image: postgres:16
+    container_name: leap-analyst-trading-db
+    environment:
+      POSTGRES_DB: trading
+      POSTGRES_USER: analyst
+      POSTGRES_PASSWORD: analyst
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./02-seed-data.sql:/docker-entrypoint-initdb.d/02-seed-data.sql:ro
+      - ./03-trade-feed-staging.sql:/docker-entrypoint-initdb.d/03-trade-feed-staging.sql:ro

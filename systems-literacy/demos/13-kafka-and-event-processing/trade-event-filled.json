@@ -1,0 +1,22 @@
+{
+  "eventId": "d47f9a10-3e2b-4c88-b0a1-7e6d5c4b3a29",
+  "eventType": "ORDER_FILLED",
+  "eventTime": "2026-09-28T09:14:24Z",
+  "source": "trade-executor",
+  "schemaVersion": 1,
+  "payload": {
+    "orderId": "6f2b1c2a-6a1e-4a4f-9c0d-2f7a1b3c4d5e",
+    "accountId": 1,
+    "symbol": "AAPL",
+    "side": "BUY",
+    "quantity": 100,
+    "price": 233.00,
+    "executedPrice": 232.71,
+    "status": "FILLED",
+    "reason": null,
+    "cashDelta": -23271.00,
+    "positionQuantityAfter": 100,
+    "averageCostAfter": 232.71,
+    "executedOn": "2026-09-28T09:14:24Z"
+  }
+}

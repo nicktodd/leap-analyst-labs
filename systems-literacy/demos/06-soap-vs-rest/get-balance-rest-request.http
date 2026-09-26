@@ -1,0 +1,14 @@
+GET /api/v1/accounts/1/balance HTTP/1.1
+Host: localhost:8080
+Authorization: Bearer <access token>
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "accountId": 1,
+  "cashBalance": 24500.75,
+  "currency": "USD",
+  "asOf": "2026-09-28T09:14:22Z"
+}

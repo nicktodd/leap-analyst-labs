@@ -1,0 +1,63 @@
+# GitHub Actions pipeline for the Trade REST API (training example).
+name: trade-api
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '21' }
+      - name: Compile and run unit tests
+        run: mvn -B verify
+      - name: Check the API against the contract
+        run: npx @stoplight/spectral-cli lint contracts/trade-api.yaml
+      - name: Quality gate
+        run: mvn -B sonar:sonar -Dsonar.qualitygate.wait=true
+
+  package:
+    needs: build-and-test
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build container image
+        run: docker build -t trade-api:${{ github.sha }} .
+      - name: Push image to registry
+        run: docker push registry.example.com/trade-api:${{ github.sha }}
+
+  deploy-dev:
+    needs: package
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Deploy to dev
+        run: ./deploy.sh dev ${{ github.sha }}
+      - name: Smoke test
+        run: curl --fail https://dev.trading.example.com/actuator/health
+
+  deploy-test:
+    needs: deploy-dev
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - name: Deploy to test
+        run: ./deploy.sh test ${{ github.sha }}
+      - name: Run API regression suite
+        run: npx newman run tests/trade-api.postman_collection.json -e tests/test.json
+
+  deploy-prod:
+    needs: deploy-test
+    runs-on: ubuntu-latest
+    environment: production   # requires approval by a named reviewer
+    steps:
+      - name: Deploy to production
+        run: ./deploy.sh prod ${{ github.sha }}
+      - name: Smoke test
+        run: curl --fail https://trading.example.com/actuator/health
