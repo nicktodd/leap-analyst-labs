@@ -21,6 +21,9 @@ open in a second window.
    end needs before typing it.
 4. Add attribute blocks for two entities, marking `PK`, `FK` and `UK`.
 5. Open `demos/08-er-diagrams-in-mermaid/trading-db-erd.md` to show the complete version.
+6. If the live preview is unavailable, use the deck: each Mermaid code slide is followed by
+   its rendered diagram (Step 1 to Step 3), and `shared/trading-db/erd.png` is the complete
+   rendered diagram.
 
 ## Part 3: what the diagram does not say (5 min)
 

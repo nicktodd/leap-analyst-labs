@@ -1,0 +1,64 @@
+erDiagram
+    ACCOUNTS ||--o{ ORDERS : places
+    INSTRUMENTS ||--o{ ORDERS : "is traded in"
+    ACCOUNTS ||--o{ POSITIONS : holds
+    INSTRUMENTS ||--o{ POSITIONS : "is held as"
+    ORDERS ||--|{ ORDER_EVENTS : "is audited by"
+    ORDERS ||--o| SETTLEMENTS : "settles as"
+    INSTRUMENTS ||--o{ MARKET_PRICES : "is priced by"
+    ACCOUNTS ||--o{ CASH_MOVEMENTS : "has"
+    ORDERS |o--o{ CASH_MOVEMENTS : "generates"
+
+    ACCOUNTS {
+        bigint id PK
+        varchar account_id UK "business reference ACC-nnnnnn"
+        varchar holder_name
+        varchar status "ACTIVE, SUSPENDED, CLOSED"
+        numeric cash_balance
+    }
+    INSTRUMENTS {
+        varchar symbol PK
+        varchar asset_class "EQUITY, ETF, BOND"
+        char currency
+        boolean tradable
+    }
+    ORDERS {
+        uuid id PK
+        bigint account_id FK
+        varchar symbol FK
+        varchar side "BUY, SELL"
+        int quantity
+        varchar status "NEW, FILLED, REJECTED, CANCELLED"
+        varchar idempotency_key UK
+    }
+    POSITIONS {
+        bigint account_id PK, FK
+        varchar symbol PK, FK
+        int quantity
+        numeric average_cost
+    }
+    ORDER_EVENTS {
+        bigint event_id PK
+        uuid order_id FK
+        varchar event_type
+        timestamp event_time
+    }
+    SETTLEMENTS {
+        bigint settlement_id PK
+        uuid order_id FK
+        date trade_date
+        date settlement_date
+        varchar status
+    }
+    MARKET_PRICES {
+        varchar symbol PK, FK
+        date price_date PK
+        numeric close_price
+    }
+    CASH_MOVEMENTS {
+        bigint movement_id PK
+        bigint account_id FK
+        varchar movement_type
+        numeric amount
+        uuid order_id "nullable, no FK constraint"
+    }

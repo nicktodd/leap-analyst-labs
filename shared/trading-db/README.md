@@ -4,6 +4,14 @@ A PostgreSQL database of six months of trading activity (January to June 2026) o
 Enterprise Trading Platform. It is the dataset for every SQL, data quality and data
 validation lab in this repository.
 
+## Entity relationship diagram
+
+![Trading database ER (entity relationship) diagram](erd.png)
+
+The diagram is rendered from `erd.mmd` (Mermaid source, the same model as
+`data-systems/demos/08-er-diagrams-in-mermaid/trading-db-erd.md`). `staging_trade_feed` is a
+landing table with no relationships and is not drawn.
+
 ## Start it
 
 With Docker Desktop running:
