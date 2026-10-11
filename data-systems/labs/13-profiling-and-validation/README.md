@@ -54,3 +54,7 @@ Time: 90 minutes, pairs. Allow 30 minutes of that for the write-up.
 
 - Write a single query that labels every row with the first rule it fails, or `CLEAN`, and
   count the clean rows.
+
+## Apply it to your project
+
+Turn the validation rules you wrote into the data validation section of your team's data dictionary, each as a testable criterion. Agree with the engineers which rules become database constraints and which become tests, and record the decision.

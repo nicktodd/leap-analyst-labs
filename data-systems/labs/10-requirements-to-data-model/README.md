@@ -52,3 +52,7 @@ request.
   `demos/08-er-diagrams-in-mermaid/trading-db-erd.md`. List what the training database is
   missing against the BRS (for example the instrument classes in BR-12) and what your model is
   missing against the database.
+
+## Apply it to your project
+
+This model is your team's requirements-first ER diagram. Commit it to the team repository next to the engineers' schema, and bring the open questions it records to the joint schema reconciliation: where the two models disagree is where the decisions are.

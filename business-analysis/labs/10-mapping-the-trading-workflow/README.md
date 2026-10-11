@@ -51,3 +51,7 @@ review.
 
 - Add a flowchart for the Trading Desk handling a client dispute (BR-15), showing which records
   David needs and where each comes from.
+
+## Apply it to your project
+
+The as-is and to-be flows you committed are the team's process model, not a lab artefact. Link `analysis/process/process-map.md` from the team's Confluence business rules page, and raise a JIRA story for every automation candidate in the to-be flow that the backlog does not yet cover.

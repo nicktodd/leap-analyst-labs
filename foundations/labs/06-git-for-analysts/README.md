@@ -75,3 +75,7 @@ menu, edit the file with the pencil icon, and commit each change separately.
 - Use `git show <id>` on a teammate's commit and explain in one sentence what it changed.
 - Find the commit that introduced a term you disagree with, and raise the question as a JIRA
   comment on the related story.
+
+## Apply it to your project
+
+Use this workflow for every analysis artefact you add to the team repository from now on: a branch named after the JIRA story, small commits, a pull request reviewed by a teammate. Agree with the engineers where analysis artefacts live in the repository (for example `analysis/`) and record it in the ways-of-working agreement.

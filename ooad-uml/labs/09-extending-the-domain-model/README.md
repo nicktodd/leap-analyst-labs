@@ -44,3 +44,7 @@ Time: 75 minutes, pairs.
 
 - Add an `<<interface>>` for a Notifier and show which classes depend on it. Explain in one
   sentence why an analyst might model an interface.
+
+## Apply it to your project
+
+Run the same cross-check against your team's backlog: every acceptance criterion must be testable with something the team's domain model contains. Raise a JIRA question on each criterion the model cannot support, and a story for each model element no requirement asks for.

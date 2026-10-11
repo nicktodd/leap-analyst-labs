@@ -45,3 +45,7 @@ Time: 120 minutes, pairs. Allow 40 minutes for the write-up.
 
 - Write one query that returns, for every FILLED order, a list of which of the checks it
   fails, using `CASE` expressions and `CONCAT_WS`.
+
+## Apply it to your project
+
+Point the same checks at your team's database once orders are flowing through the platform. Any check that fails against the team's data is a defect or a model gap: log it in JIRA with the evidence and the probable cause, as you did in the findings document.

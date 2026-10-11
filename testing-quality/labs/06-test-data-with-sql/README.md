@@ -47,3 +47,7 @@ Time: 75 minutes, pairs. Allow 20 minutes of that for the test data sheet.
 
 - Write a query that returns, for every clean happy-path account, the instrument it holds the
   most units of and the quantity. That gives each sell test its own data.
+
+## Apply it to your project
+
+Prepare the test data for your team's test pack against the team's own database: choose the accounts and instruments each test case needs, exclude records whose integrity is in doubt, and record them in the team's test data sheet so the engineers can seed the UAT environment.

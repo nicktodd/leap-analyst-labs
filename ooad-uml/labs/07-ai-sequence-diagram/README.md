@@ -48,3 +48,7 @@ Time: 90 minutes, pairs.
 
 - Ask Copilot to review your corrected diagram against BR-06 and BR-09. Record whether its
   review found anything you missed, and anything it claimed wrongly.
+
+## Apply it to your project
+
+Draw the same trade capture sequence for your team's own platform, using the team's API contract and event design rather than the shared contracts. Keep it in the team repository under `analysis/sequence/` and update it when the design changes.

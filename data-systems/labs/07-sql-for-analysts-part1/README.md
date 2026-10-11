@@ -32,3 +32,7 @@ Time: 75 minutes, pairs.
 ## Stretch
 
 - Produce a monthly report of filled value by currency and asset class, in one query.
+
+## Apply it to your project
+
+Write two joined or aggregated queries that answer questions your team's customer has asked (volumes by instrument, orders per account) against the team's schema. Keep them in the team repository under `analysis/sql/` so they can be rerun as the schema changes.

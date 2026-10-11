@@ -5,6 +5,8 @@ course: SQL, Mermaid diagrams kept under version control, API contracts, Postman
 sample code and pipeline files. Exercises completed in Word live in the course docs folders, not
 here.
 
+Most hands-on labs end with an **Apply it to your project** step that points the lab's skill at your team's own platform. Friday is project time, and your instructors will give additional project time during the week as time allows and as projects progress.
+
 ## Structure
 
 | Week | Folder | Theme |

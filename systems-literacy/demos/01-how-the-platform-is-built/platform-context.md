@@ -53,7 +53,7 @@ flowchart LR
 |---|---|
 | Who owns it, upstream and downstream | Broker A operations; loaded by the platform ETL |
 | Format and transport | CSV over SFTP (Secure File Transfer Protocol) |
-| Schedule and cut-off | Once per business day, by 06:00 UK time |
+| Schedule and cut-off | Once per business day, by 06:00 ET (Eastern Time) |
 | Volume | A few hundred rows per file |
 | What happens when it is late or missing | Reconciliation cannot run; desk alerted |
 | What happens to a bad row | Quarantined with a reason code (Week 2 Module 13) |

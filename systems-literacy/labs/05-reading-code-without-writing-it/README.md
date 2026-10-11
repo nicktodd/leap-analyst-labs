@@ -56,3 +56,7 @@ You do not need to run or compile the code. The supporting classes (repositories
 - Week 2 found an order for an instrument that was not tradable being filled. Explain, from
   this code, how that could happen, and which service (API or Trade Executor) you would ask
   about next.
+
+## Apply it to your project
+
+Trace one trading rule from your team's backlog (BR-05 is a good start) through the team's actual code, with Copilot's help and your own verification. Record where the rule is enforced, file and line, and raise a question if the code and the story disagree.

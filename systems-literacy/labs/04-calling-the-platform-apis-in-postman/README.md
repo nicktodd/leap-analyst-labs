@@ -99,3 +99,7 @@ your observations.
 - Add a request `Place order (SELL all held)` that sells exactly the quantity returned by
   `Get positions`. Predict the result from the contract before sending it. Keep the request:
   Module 05 traces the same rule into code.
+
+## Apply it to your project
+
+Build a Postman collection for your team's own API from the team's contract, with a login request and an order request. Add a test script to each request that checks the status code and error code the contract promises, and share the collection in the team repository under `analysis/api/`.

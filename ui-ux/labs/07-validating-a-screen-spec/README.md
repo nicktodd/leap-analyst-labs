@@ -49,3 +49,7 @@ diagram, 10 minutes to commit).
 
 - Ask Copilot Chat to review your corrected diagram against `trade-api.yaml`. Record one point
   where you accepted its suggestion and one where you rejected it, with your reason.
+
+## Apply it to your project
+
+Review your team's own order ticket screen specification against WCAG 2.2 AA and the team's API contract in the same way. Log every gap as a JIRA defect before the Angular build starts, labelled with the BR it affects.

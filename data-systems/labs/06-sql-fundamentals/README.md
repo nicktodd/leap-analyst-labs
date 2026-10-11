@@ -39,3 +39,7 @@ Time: 60 minutes, pairs.
 - Find the earliest and latest `created_on` in `orders` using `ORDER BY` and `LIMIT`.
 - Find the orders whose `executed_price` differs from the requested `price` by more than 5
   percent.
+
+## Apply it to your project
+
+Run the same kinds of queries against your team's own schema once the engineers have a first version: which tables and columns exist, which are empty, and which your data dictionary describes differently. Record each mismatch as a question for the next schema reconciliation.

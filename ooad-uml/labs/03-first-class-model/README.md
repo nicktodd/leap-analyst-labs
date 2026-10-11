@@ -46,3 +46,7 @@ Time: 75 minutes, pairs. 45 minutes to model, 30 minutes to review.
   classes and link them.
 - Mark which attributes are identifiers, and compare them with the keys in the Week 2 data
   model. Where do the two models differ, and why.
+
+## Apply it to your project
+
+Bring this class model to the joint domain-model reconciliation with your team's engineers. Where their domain code names things differently from your model, agree one vocabulary, update the model, and record the decision in the team's decision log.

@@ -54,7 +54,7 @@ info:
 
     ## Security rules
 
-    These are assessed in the Sprint 8 security review.
+    These are reviewed in the Sprint 8 security review.
 
     - Store passwords with argon2id or bcrypt at cost 12 or above. Never MD5, never SHA-256, never
       an unsalted hash.

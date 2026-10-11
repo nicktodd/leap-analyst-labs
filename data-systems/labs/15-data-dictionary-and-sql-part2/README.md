@@ -54,3 +54,7 @@ Time: 120 minutes in project teams: 60 minutes SQL, 60 minutes data dictionary.
 ## Stretch
 
 - Complete the stretch query in `exercises.sql` and explain how ties are handled.
+
+## Apply it to your project
+
+Author the data dictionary entries for your team's actual schema, not the training database, and link each entry to the BR that needs the field. Keep the read-only session habit for every query you run against the team's shared database from here on.

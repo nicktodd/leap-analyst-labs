@@ -33,7 +33,7 @@ info:
 
     ## Definitions
 
-    Get these right; they are the assessment.
+    Get these right; they are what the review checks.
 
     - **Cost basis** for a position is `quantity * averageCost`. Average cost is weighted: a buy
       recalculates it as `(oldQty * oldAvg + newQty * fillPrice) / (oldQty + newQty)`. A sell reduces

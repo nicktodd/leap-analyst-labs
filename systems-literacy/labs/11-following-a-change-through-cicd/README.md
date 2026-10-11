@@ -47,3 +47,7 @@ unit test, and opens a pull request against `main`.
 - The pipeline has no step that tests with the Trade Executor and Kafka running. Describe
   what could still go wrong in production for this change, and which environment should
   catch it.
+
+## Apply it to your project
+
+Read your team's pipeline file and name its stages and gates. Agree with the engineers where the test pack and acceptance criteria feed the pipeline, and whether any stage needs an analyst's approval before a release.
