@@ -1,6 +1,6 @@
 # Week 5: UI/UX literacy and stakeholder demos
 
-Labs and demos for Week 5 of the LEAP Systems Analyst track. The week covers user-centred
+Labs and demos for Week 5 of the Leap Systems Analyst track. The week covers user-centred
 design, accessibility as a requirement (WCAG, the Web Content Accessibility Guidelines),
 wireframing in Figma, screen specification, UI (user interface) states, usability testing,
 access control from the user's side, reading an OpenAPI contract, and stakeholder demos.

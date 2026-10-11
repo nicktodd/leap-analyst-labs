@@ -1,6 +1,6 @@
 # Week 8: Testing, UAT and quality
 
-Labs and demos for Week 8 of the LEAP Systems Analyst track. The week covers software quality
+Labs and demos for Week 8 of the Leap Systems Analyst track. The week covers software quality
 and the analyst's part in it, the test pyramid, test case design (including accessibility
 testing), test data, AI-assisted test design, SRE (Site Reliability Engineering) testing
 disciplines, test execution and defect logging, severity and triage, UAT (User Acceptance

@@ -1,6 +1,6 @@
 # Week 6: APIs, cloud and systems literacy
 
-Labs and demos for Week 6 of the LEAP Systems Analyst track. The week covers how the
+Labs and demos for Week 6 of the Leap Systems Analyst track. The week covers how the
 Enterprise Trading Platform is built and how data enters and leaves it, REST (Representational
 State Transfer) APIs and OpenAPI contracts, calling the APIs in Postman, reading code, SOAP
 (Simple Object Access Protocol), COBOL, CICS (Customer Information Control System) and batch

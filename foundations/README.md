@@ -1,6 +1,6 @@
 # Week 1: Foundations, ways of working and analysis essentials
 
-Labs for Week 1 of the LEAP Systems Analyst track. Most Week 1 labs are completed in Word,
+Labs for Week 1 of the Leap Systems Analyst track. Most Week 1 labs are completed in Word,
 JIRA or Confluence and use documents in the Week 1 `docs` folder of the course materials. The
 Git lab is here because it needs a repository.
 

@@ -1,6 +1,6 @@
 # Week 2: The trading domain and data systems
 
-Labs and demos for Week 2 of the LEAP Systems Analyst track. The week covers the investment
+Labs and demos for Week 2 of the Leap Systems Analyst track. The week covers the investment
 lifecycle, the data it creates, SQL (Structured Query Language) for analysts, entity
 relationship (ER) modelling in Mermaid, data quality and the data dictionary.
 

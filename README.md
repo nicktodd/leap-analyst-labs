@@ -1,6 +1,6 @@
-# LEAP Analyst Labs
+# Leap Analyst Labs
 
-Lab repository for the LEAP Systems Analyst track. It holds every code-related exercise in the
+Lab repository for the Leap Systems Analyst track. It holds every code-related exercise in the
 course: SQL, Mermaid diagrams kept under version control, API contracts, Postman collections,
 sample code and pipeline files. Exercises completed in Word live in the course docs folders, not
 here.

@@ -1,6 +1,6 @@
 # Week 4: OOAD, UML and domain modelling
 
-Labs and demos for Week 4 of the LEAP Systems Analyst track. The week covers OOAD
+Labs and demos for Week 4 of the Leap Systems Analyst track. The week covers OOAD
 (Object-Oriented Analysis and Design), UML (Unified Modelling Language) class, use case,
 sequence, state and activity models in Mermaid, use case specifications, non-functional
 requirements, advanced SQL (Structured Query Language) and validating the domain model

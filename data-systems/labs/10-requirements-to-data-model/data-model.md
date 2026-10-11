@@ -2,7 +2,7 @@
 
 Team:
 Version: 0.1
-Source: LEAP-BRS-2026-014 v0.9
+Source: Leap-BRS-2026-014 v0.9
 
 ## 1. Candidate nouns and verbs
 

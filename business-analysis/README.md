@@ -1,6 +1,6 @@
 # Week 3: Business analysis foundations
 
-Labs and demos for Week 3 of the LEAP Systems Analyst track. The week covers elicitation,
+Labs and demos for Week 3 of the Leap Systems Analyst track. The week covers elicitation,
 the Business Requirements Document (BRD), functional and non-functional requirements,
 process modelling in Mermaid and BPMN (Business Process Model and Notation), data flow and
 context diagrams, use cases, user stories and acceptance criteria.
@@ -13,7 +13,7 @@ holds the parts kept in Git: Mermaid process and data flow diagrams, and a Gherk
 - GitHub access to the course repository and your team repository, with a Mermaid preview
   (GitHub renders Mermaid in Markdown files)
 - Your team's Week 2 data model in `analysis/data-model/`, so process maps sit beside it
-- The BRS (`LEAP-Project-Business-Requirements-Specification.docx`, Week 1 docs folder)
+- The BRS (`Leap-Project-Business-Requirements-Specification.docx`, Week 1 docs folder)
 
 ## Structure
 

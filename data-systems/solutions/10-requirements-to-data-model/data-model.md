@@ -1,7 +1,7 @@
 # Enterprise Trading Platform: logical data model (reference solution)
 
 Version: 1.0 (reference)
-Source: LEAP-BRS-2026-014 v0.9
+Source: Leap-BRS-2026-014 v0.9
 
 This is one defensible model, not the only one. Teams may merge or split entities differently
 (for example, one CLIENT with one ACCOUNT, or ORDER_EVENT carrying the fill price instead of a

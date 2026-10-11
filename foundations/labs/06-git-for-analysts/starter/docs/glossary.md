@@ -1,4 +1,4 @@
-# LEAP Direct Trading Platform glossary
+# Leap Direct Trading Platform glossary
 
 Terms used in the Business Requirements Specification (BRS). Add rows in alphabetical order.
 

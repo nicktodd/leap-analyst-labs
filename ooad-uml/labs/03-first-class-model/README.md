@@ -12,7 +12,7 @@
 
 1. Open `class-model.md` from this folder in your editor, with a Mermaid preview (GitHub,
    or the Markdown preview in Visual Studio Code).
-2. Have the BRS (`LEAP-Project-Business-Requirements-Specification.docx`, Week 1 docs folder)
+2. Have the BRS (`Leap-Project-Business-Requirements-Specification.docx`, Week 1 docs folder)
    and your Week 2 data model to hand.
 3. Open `docs/03-ClassModelPeerReview.docx` (Week 4 docs folder) for the review.
 

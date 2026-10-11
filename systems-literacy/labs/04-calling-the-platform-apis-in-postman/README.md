@@ -67,7 +67,7 @@ npx @stoplight/prism-cli mock -p 4011 shared/contracts/auth-api.yaml
 ```
 
 The Trade API mock listens on `http://localhost:4010` and the auth mock on
-`http://localhost:4011`. Select the `LEAP Prism mock` environment.
+`http://localhost:4011`. Select the `Leap Prism mock` environment.
 
 The mock checks that a bearer token is present but does not verify it. It returns the
 examples written in the contract; the `Prefer` header on each error request tells Prism which

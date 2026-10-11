@@ -10,7 +10,7 @@
 
 ## Setup
 
-1. Open the BRS (`LEAP-Project-Business-Requirements-Specification.docx`, Week 1 docs folder).
+1. Open the BRS (`Leap-Project-Business-Requirements-Specification.docx`, Week 1 docs folder).
    Focus on sections 8.1 to 8.6, the glossary and the personas.
 2. Copy `data-model.md` from this folder into your team repository under
    `analysis/data-model/data-model.md`.
